@@ -1,0 +1,30 @@
+{
+  "entities": {
+    "ContactRequest": {
+      "description": "Contact form submissions from potential clients",
+      "properties": {
+        "fullName": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 150 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "projectType": { "type": "string", "maxLength": 50 },
+        "budget": { "type": "string", "maxLength": 50 },
+        "message": { "type": "string", "maxLength": 2000 },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["fullName", "email", "projectType", "message"]
+    }
+  },
+  "firestore": {
+    "paths": {
+      "/contact_requests/{requestId}": {
+        "entity": "ContactRequest",
+        "allow": {
+          "create": "true",
+          "read": "false",
+          "update": "false",
+          "delete": "false"
+        }
+      }
+    }
+  }
+}
